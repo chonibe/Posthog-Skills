@@ -6,13 +6,17 @@ Cursor (and compatible) **agent skills** for [PostHog](https://posthog.com) prod
 
 | Skill | Description |
 |-------|-------------|
-| [using-posthog](using-posthog/SKILL.md) | Events, person properties, cohorts, EU/US hosts, troubleshooting; PostHog MCP only as optional live inspection with schema-first tool use. |
+| [using-posthog](using-posthog/SKILL.md) | Comprehensive, project-agnostic guidance: events, persons, cohorts, insights, flags, experiments, errors, warehouse, surveys, CDP, notebooks, LLM-related features, API automation, EU/US regions. Includes `references/` for domains, patterns, workflows, and MCP as **optional** enrichment (schema-first). Works without MCP. |
+
+## Layout
+
+`using-posthog/` contains `SKILL.md`, `reference.md` (index + external links), and `references/` for deeper progressive disclosure.
 
 ## Install (Cursor)
 
-1. Copy `using-posthog/` into your app repo, e.g. `.cursor/skills/using-posthog/` (include `SKILL.md`).
-2. Configure PostHog MCP if you want in-editor queries ([docs](https://posthog.com/docs/model-context-protocol/cursor.md)); the skill is useful without MCP.
-3. Reference with `@using-posthog` or rely on description-based discovery.
+1. Copy the entire `using-posthog/` directory into your app repo, e.g. `.cursor/skills/using-posthog/`.
+2. PostHog MCP is optional—in-editor queries when configured ([MCP + Cursor](https://posthog.com/docs/model-context-protocol/cursor.md)).
+3. Use `@using-posthog` or rely on description-based discovery.
 
 ## License
 
@@ -20,4 +24,4 @@ See [LICENSE](LICENSE).
 
 ## Contributing
 
-PRs welcome; each skill stays self-contained with YAML `name` and `description` on `SKILL.md`.
+PRs welcome; keep YAML `name` and `description` on `SKILL.md`; add depth under `references/` rather than bloating the main file.

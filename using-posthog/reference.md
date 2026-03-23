@@ -1,33 +1,42 @@
-# Using PostHog — reference
+# Using PostHog — reference index
 
-## Documentation
+Canonical links and pointers into this skill’s reference files. **No project-specific paths**—env var names and file layout are defined by each application.
 
-- [PostHog Model Context Protocol](https://posthog.com/docs/model-context-protocol) — MCP endpoints (US/EU), authentication, pinning, `?features=` tool subsets, security.
-- [Cursor setup](https://posthog.com/docs/model-context-protocol/cursor.md)
-- [Cohorts API](https://posthog.com/docs/api/cohorts)
-- [posthog-js](https://posthog.com/docs/libraries/js) — init options including `person_profiles`
+---
 
-## Env vars (typical for API scripts)
+## In this skill
 
-| Variable | Role |
-|----------|------|
-| `POSTHOG_PERSONAL_API_KEY` | `phx_...` for REST management APIs |
-| `POSTHOG_PROJECT_ID` | Project id |
-| `POSTHOG_HOST` | Regional API base, e.g. `https://eu.i.posthog.com` |
+| File | Contents |
+|------|----------|
+| [references/product-domains.md](references/product-domains.md) | PostHog product areas: events, persons, cohorts, insights, flags, experiments, errors, warehouse, surveys, CDP, notebooks, LLM-related features |
+| [references/patterns-and-troubleshooting.md](references/patterns-and-troubleshooting.md) | Instrumentation patterns; symptom → approach tables; EU/US API notes |
+| [references/mcp-as-resource.md](references/mcp-as-resource.md) | When/how to use MCP for depth; `features=` matrix; endpoints; tool families; schema-first rule |
+| [references/agent-workflows.md](references/agent-workflows.md) | Generic task sequences (funnels, cohorts, flags, errors, SQL, API sync) |
 
-## MCP tools (verify against live schema)
+---
 
-Grouped by purpose; exact names and args come from the MCP descriptor in your client:
+## PostHog documentation (external)
 
-| Area | Examples |
-|------|-----------|
-| Schema | `read-data-schema`, `event-definitions-list`, `properties-list` |
-| Query | `query-run`, `query-trends`, `query-funnel`, `execute-sql` |
-| Cohorts | `cohorts-list`, `cohorts-create`, `cohorts-partial-update`, … |
-| Flags | `create-feature-flag`, `update-feature-flag`, `feature-flag-get-all`, … |
-| Errors | `list-errors`, `error-details`, … |
-| Docs | `docs-search` |
+- [Docs home](https://posthog.com/docs)
+- [Product analytics](https://posthog.com/docs/product-analytics)
+- [Feature flags](https://posthog.com/docs/feature-flags)
+- [Experiments](https://posthog.com/docs/experiments)
+- [Cohorts](https://posthog.com/docs/data/cohorts)
+- [Error tracking](https://posthog.com/docs/error-tracking)
+- [Data warehouse](https://posthog.com/docs/data-warehouse)
+- [Surveys](https://posthog.com/docs/surveys)
+- [API overview](https://posthog.com/docs/api/overview)
+- [posthog-js](https://posthog.com/docs/libraries/js)
 
-## Installing this skill
+---
 
-Copy `using-posthog/` (with `SKILL.md`) into `.cursor/skills/using-posthog/` in your project, or follow your team’s canonical `skills/` workflow.
+## MCP setup (external)
+
+- [Model Context Protocol (PostHog)](https://posthog.com/docs/model-context-protocol) — US/EU URLs, auth, pinning, `?features=`, security, full tool list
+- [Cursor](https://posthog.com/docs/model-context-protocol/cursor.md)
+
+---
+
+## API automation (generic)
+
+REST and personal API keys are **project- and region-specific**. Typical variables (names vary by team): personal API key (`phx_...`), project id, and API host matching the project’s **EU or US** stack. See [API overview](https://posthog.com/docs/api/overview) for authentication and regional endpoints.
